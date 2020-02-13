@@ -4,8 +4,10 @@
 // that code so it'll be compiled.
 import 'jquery'
 import('src/plugins')
+import('src/room')
 import 'css/site'
 import 'initializers/turbolinks.js'
+
 
 require("@rails/ujs").start()
 require("turbolinks").start()
