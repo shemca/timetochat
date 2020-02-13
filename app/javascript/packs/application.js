@@ -5,6 +5,7 @@
 import 'jquery'
 import('src/plugins')
 import 'css/site'
+import 'initializers/turbolinks.js'
 
 require("@rails/ujs").start()
 require("turbolinks").start()
