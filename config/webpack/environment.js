@@ -5,5 +5,5 @@ const vue = require('./loaders/vue')
 
 environment.plugins.prepend('VueLoaderPlugin', new VueLoaderPlugin())
 environment.loaders.prepend('vue', vue)
-environment.loaders.prepend('erb', erb)
+// environment.loaders.prepend('erb', erb)
 module.exports = environment
