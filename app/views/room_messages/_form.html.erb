@@ -1,0 +1,11 @@
+<%= content_tag :div,
+id: "message-form",
+data: {
+    room_message: message.to_json(except: [:created_at, :updated_at])
+} do %>
+
+<textarea v-model="message.message" rows="10" cols="60"></textarea>
+
+<button v-on:click="Submit">Submit</button>
+
+<% end %>

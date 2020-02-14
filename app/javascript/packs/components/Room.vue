@@ -11,8 +11,9 @@
                 <Message v-for="message in room.messages" :message="message" v-bind:key="message.id"/>
             </div>
             <div class="messageinput">
-                <input v-model="room.messages.message">
-                <button v-on:click="submit">Submit</button>
+<!--                <input v-model="room.messages.message">-->
+<!--                <button v-on:click="submit">Submit</button>-->
+
             </div>
         </div>
     </div>

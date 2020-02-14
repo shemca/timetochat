@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   before_action :load_entities
 
   def index
-    @rooms = Room.all
+    @rooms = Room.includes(:room_messages).all
+    @roomprops = Room.to_builder(@rooms).target!
   end
 
   def new
@@ -24,7 +25,7 @@ class RoomsController < ApplicationController
   end
 
   def update
-    if @room.update_attributes(permitted_parameters)
+    if @room.update(permitted_parameters)
       flash[:success] = "Room #{@room.name} was updated successfully"
       redirect_to rooms_path
     else
@@ -35,6 +36,7 @@ class RoomsController < ApplicationController
   def show
     @room_message = RoomMessage.new room: @room
     @room_messages = @room.room_messages.includes(:user)
+    # @roommessagesprop = Room.to_builder(@room_messages)
   end
 
   protected
@@ -45,6 +47,6 @@ class RoomsController < ApplicationController
   end
 
   def permitted_parameters
-    params.require(:room).permit(:name)
+    params.require(:room).permit(:name, room_messages: [:id, :message, :user_id, :room_id])
   end
 end
